@@ -24,6 +24,6 @@
 - Ambas en Supabase secrets
 
 ## Contacto usuario
-- Email: nex356v@gmail.com
+- Email: thalexsystems@gmail.com
 - GitHub: uxueadrian
 - WhatsApp: 7772597109

@@ -221,7 +221,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500">Correo electrónico</p>
-                    <p className="text-gray-800 font-medium">nex356v@gmail.com</p>
+                    <p className="text-gray-800 font-medium">thalexsystems@gmail.com</p>
                   </div>
                 </div>
 

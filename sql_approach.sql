@@ -49,7 +49,7 @@ $$;
 -- Set the secrets as session parameters
 -- (These should be set in Supabase dashboard > Settings > API > Secrets)
 select set_config('app.resend_api_key', 're_XXX', false);
-select set_config('app.to_email', 'adrianuxuechavezmartinez@gmail.com', false);
+select set_config('app.to_email', 'thalexsystems@gmail.com', false);
 
 -- Create a trigger to send email when a new lead is inserted
 create or replace function public.on_lead_inserted()
@@ -80,4 +80,4 @@ console.log('')
 console.log('But first, set the secrets in Supabase Dashboard:')
 console.log('Settings > API > Secrets > Add:')
 console.log('  - RESEND_API_KEY: your_resend_api_key')
-console.log('  - TO_EMAIL: adrianuxuechavezmartinez@gmail.com')
+console.log('  - TO_EMAIL: thalexsystems@gmail.com')

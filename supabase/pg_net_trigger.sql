@@ -54,4 +54,4 @@ create trigger on_lead_inserted
 --    (First, create the settings schema if needed)
 --    IMPORTANT: Replace the placeholder values below with your actual secrets
 select set_config('app.settings.resend_api_key', 're_XXX', false);
-select set_config('app.settings.to_email', 'adrianuxuechavezmartinez@gmail.com', false);
+select set_config('app.settings.to_email', 'thalexsystems@gmail.com', false);

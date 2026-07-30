@@ -39,7 +39,7 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-3">Contacto</h4>
             <ul className="space-y-2 text-sm">
-              <li>nex356v@gmail.com</li>
+              <li>thalexsystems@gmail.com</li>
               <li>+52 777 259 7109</li>
             </ul>
           </div>
