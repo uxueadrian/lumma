@@ -1,6 +1,6 @@
 const WHATSAPP_NUMBER = '7772597109'
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Hola, vi la página de Lumma y quiero solicitar información sobre un proyecto.'
+  'Hola, vi la página de Thalex Systems y quiero solicitar información sobre un proyecto.'
 )
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
@@ -8,33 +8,33 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-lumma-50"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-slate-50 via-white to-thalex-50"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-lumma-200/20 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-thalex-200/20 via-transparent to-transparent" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 bg-lumma-100 text-lumma-700 rounded-full text-sm font-medium mb-8">
-          <span className="w-2 h-2 bg-lumma-500 rounded-full animate-pulse" />
+        <div className="inline-flex items-center gap-2 px-4 py-2 bg-thalex-100 text-thalex-700 rounded-full text-sm font-medium mb-8">
+          <span className="w-2 h-2 bg-thalex-500 rounded-full animate-pulse" />
           Transformamos ideas en soluciones digitales
         </div>
 
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-dark leading-tight mb-6">
           Creamos soluciones digitales{' '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-lumma-500 to-lumma-700">
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-thalex-500 to-thalex-700">
             modernas
           </span>{' '}
           para impulsar tu negocio
         </h1>
 
         <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-          En Lumma desarrollamos landing pages, sitios web, tiendas en línea y sistemas web
+          En Thalex Systems desarrollamos landing pages, sitios web, tiendas en línea y sistemas web
           que ayudan a tu negocio a crecer y destacar en el mundo digital.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href="#contact"
-            className="bg-lumma-600 hover:bg-lumma-700 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-all shadow-lg shadow-lumma-200 hover:shadow-xl hover:-translate-y-0.5"
+            className="bg-thalex-600 hover:bg-thalex-700 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-all shadow-lg shadow-thalex-200 hover:shadow-xl hover:-translate-y-0.5"
           >
             Solicitar cotización
           </a>

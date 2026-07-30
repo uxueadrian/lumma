@@ -2,27 +2,27 @@ const projects = [
   {
     title: 'Proyecto Cliente',
     category: 'Landing Page',
-    bg: 'bg-gradient-to-br from-lumma-400 to-lumma-600',
+    bg: 'bg-gradient-to-br from-thalex-400 to-thalex-600',
   },
   {
     title: 'Proyecto Cliente',
     category: 'Sitio Web Empresarial',
-    bg: 'bg-gradient-to-br from-lumma-500 to-lumma-700',
+    bg: 'bg-gradient-to-br from-thalex-500 to-thalex-700',
   },
   {
     title: 'Proyecto Cliente',
     category: 'E-commerce',
-    bg: 'bg-gradient-to-br from-lumma-600 to-lumma-800',
+    bg: 'bg-gradient-to-br from-thalex-600 to-thalex-800',
   },
   {
     title: 'Proyecto Cliente',
     category: 'Sistema Web',
-    bg: 'bg-gradient-to-br from-lumma-400 to-lumma-700',
+    bg: 'bg-gradient-to-br from-thalex-400 to-thalex-700',
   },
   {
     title: 'Proyecto Cliente',
     category: 'Aplicación Web',
-    bg: 'bg-gradient-to-br from-lumma-500 to-lumma-800',
+    bg: 'bg-gradient-to-br from-thalex-500 to-thalex-800',
   },
   {
     title: 'Tu proyecto aquí',

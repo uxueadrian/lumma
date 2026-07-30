@@ -72,9 +72,9 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group p-6 rounded-2xl border border-gray-100 hover:border-lumma-200 hover:shadow-lg hover:shadow-lumma-50 transition-all"
+              className="group p-6 rounded-2xl border border-gray-100 hover:border-thalex-200 hover:shadow-lg hover:shadow-thalex-50 transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-lumma-50 text-lumma-600 flex items-center justify-center mb-4 group-hover:bg-lumma-100 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-thalex-50 text-thalex-600 flex items-center justify-center mb-4 group-hover:bg-thalex-100 transition-colors">
                 {service.icon}
               </div>
               <h3 className="text-lg font-semibold text-dark mb-2">{service.title}</h3>

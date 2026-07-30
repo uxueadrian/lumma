@@ -10,7 +10,7 @@ const navLinks = [
 
 const WHATSAPP_NUMBER = '7772597109'
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Hola, vi la página de Lumma y quiero solicitar información sobre un proyecto.'
+  'Hola, vi la página de Thalex Systems y quiero solicitar información sobre un proyecto.'
 )
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
@@ -21,8 +21,8 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="text-2xl font-bold text-lumma-600">
-            Lumma
+          <a href="#hero" className="text-2xl font-bold text-thalex-600">
+            Thalex Systems
           </a>
 
           <div className="hidden md:flex items-center gap-8">
@@ -30,7 +30,7 @@ export default function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-gray-600 hover:text-lumma-600 transition-colors text-sm font-medium"
+                className="text-gray-600 hover:text-thalex-600 transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>
@@ -69,7 +69,7 @@ export default function Navbar() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="block text-gray-600 hover:text-lumma-600 transition-colors text-sm font-medium"
+                className="block text-gray-600 hover:text-thalex-600 transition-colors text-sm font-medium"
               >
                 {link.label}
               </a>

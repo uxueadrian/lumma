@@ -3,7 +3,7 @@ import { submitLead } from '../services/leadService'
 
 const WHATSAPP_NUMBER = '7772597109'
 const WHATSAPP_MESSAGE = encodeURIComponent(
-  'Hola, vi la página de Lumma y quiero solicitar información sobre un proyecto.'
+  'Hola, vi la página de Thalex Systems y quiero solicitar información sobre un proyecto.'
 )
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
@@ -115,7 +115,7 @@ export default function Contact() {
                       value={form.nombre}
                       onChange={handleChange}
                       placeholder="Tu nombre"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.nombre ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all`}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.nombre ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all`}
                     />
                     {errors.nombre && <p className="text-red-500 text-sm mt-1">{errors.nombre}</p>}
                   </div>
@@ -127,7 +127,7 @@ export default function Contact() {
                       value={form.correo}
                       onChange={handleChange}
                       placeholder="tu@correo.com"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.correo ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all`}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.correo ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all`}
                     />
                     {errors.correo && <p className="text-red-500 text-sm mt-1">{errors.correo}</p>}
                   </div>
@@ -139,7 +139,7 @@ export default function Contact() {
                       value={form.telefono}
                       onChange={handleChange}
                       placeholder="+52 777 123 4567"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.telefono ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all`}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.telefono ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all`}
                     />
                     {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>}
                   </div>
@@ -149,7 +149,7 @@ export default function Contact() {
                       name="servicio"
                       value={form.servicio}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all text-gray-600"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all text-gray-600"
                     >
                       <option value="">Selecciona un servicio</option>
                       {services.map((s) => (
@@ -168,7 +168,7 @@ export default function Contact() {
                       name="presupuesto"
                       value={form.presupuesto}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all text-gray-600"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all text-gray-600"
                     >
                       <option value="">Selecciona un rango</option>
                       {budgets.map((b) => (
@@ -186,7 +186,7 @@ export default function Contact() {
                       onChange={handleChange}
                       rows={4}
                       placeholder="Cuéntanos sobre tu idea o proyecto..."
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.mensaje ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-lumma-400 focus:ring-2 focus:ring-lumma-100 outline-none transition-all resize-none`}
+                      className={`w-full px-4 py-3 rounded-xl border ${errors.mensaje ? 'border-red-400' : 'border-gray-200'} bg-gray-50 focus:bg-white focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 outline-none transition-all resize-none`}
                     />
                     {errors.mensaje && <p className="text-red-500 text-sm mt-1">{errors.mensaje}</p>}
                   </div>
@@ -194,7 +194,7 @@ export default function Contact() {
                   <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="w-full bg-lumma-600 hover:bg-lumma-700 disabled:bg-lumma-300 text-white py-3.5 rounded-xl font-semibold transition-all shadow-lg shadow-lumma-200 hover:shadow-xl"
+                    className="w-full bg-thalex-600 hover:bg-thalex-700 disabled:bg-thalex-300 text-white py-3.5 rounded-xl font-semibold transition-all shadow-lg shadow-thalex-200 hover:shadow-xl"
                   >
                     {status === 'loading' ? 'Enviando solicitud...' : 'Enviar solicitud'}
                   </button>
@@ -214,7 +214,7 @@ export default function Contact() {
               <h3 className="text-xl font-semibold text-dark mb-4">Información de contacto</h3>
               <div className="space-y-4">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-lg bg-lumma-100 text-lumma-600 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-lg bg-thalex-100 text-thalex-600 flex items-center justify-center shrink-0">
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>

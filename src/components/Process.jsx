@@ -4,28 +4,28 @@ const steps = [
     title: 'Idea inicial',
     description:
       'Nos reunimos para entender tu visión, objetivos y necesidades. Definimos juntos el alcance del proyecto.',
-    color: 'bg-lumma-500',
+    color: 'bg-thalex-500',
   },
   {
     number: '02',
     title: 'Planeación',
     description:
       'Creamos una estrategia detallada: diseño, tecnologías, tiempos y presupuesto. Tú apruebas cada paso.',
-    color: 'bg-lumma-600',
+    color: 'bg-thalex-600',
   },
   {
     number: '03',
     title: 'Desarrollo',
     description:
       'Construimos tu solución con tecnologías modernas. Te mantenemos informado con avances constantes.',
-    color: 'bg-lumma-700',
+    color: 'bg-thalex-700',
   },
   {
     number: '04',
     title: 'Lanzamiento',
     description:
       'Desplegamos tu proyecto, te capacitamos y brindamos soporte continuo para garantizar tu éxito.',
-    color: 'bg-lumma-800',
+    color: 'bg-thalex-800',
   },
 ]
 
@@ -44,7 +44,7 @@ export default function Process() {
           {steps.map((step, index) => (
             <div key={step.number} className="relative">
               {index < steps.length - 1 && (
-                <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 border-t-2 border-dashed border-lumma-200" />
+                <div className="hidden lg:block absolute top-8 left-[60%] w-[80%] h-0.5 border-t-2 border-dashed border-thalex-200" />
               )}
               <div className="flex flex-col items-center text-center">
                 <div
