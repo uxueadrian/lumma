@@ -19,8 +19,8 @@ Landing page profesional para agencia de desarrollo web. Construida con React + 
 ## Variables de entorno
 
 ```env
-VITE_SUPABASE_URL=https://alfzdrzjwbhypdjhrtbq.supabase.co
-VITE_SUPABASE_ANON_KEY=eyJ...
+VITE_SUPABASE_URL=https://tu-proyecto.supabase.co
+VITE_SUPABASE_ANON_KEY=tu-anon-key
 ```
 
 ## Scripts
