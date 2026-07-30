@@ -20,7 +20,7 @@ serve(async (req) => {
     const { nombre, correo, telefono, servicio, presupuesto, mensaje } = await req.json()
 
     const emailHtml = `
-      <h2>Nueva solicitud de cotizaci&oacute;n - Lumma</h2>
+      <h2>Nueva solicitud de cotizaci&oacute;n - Thalex Systems</h2>
       <table border="0" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">
         <tr><td><strong>Nombre:</strong></td><td>${nombre}</td></tr>
         <tr><td><strong>Correo:</strong></td><td>${correo}</td></tr>
@@ -39,7 +39,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Lumma <onboarding@resend.dev>',
+        from: 'Thalex Systems <onboarding@resend.dev>',
         to: [TO_EMAIL],
         subject: `Nueva solicitud de cotizaci&oacute;n - ${nombre}`,
         html: emailHtml,

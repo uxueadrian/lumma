@@ -26,11 +26,11 @@ begin
         'Authorization', concat('Bearer ', current_setting('app.resend_api_key'))
       ),
       body := jsonb_build_object(
-        'from', 'Lumma <onboarding@resend.dev>',
+        'from', 'Thalex Systems <onboarding@resend.dev>',
         'to', jsonb_build_array(current_setting('app.to_email')),
         'subject', concat('Nueva solicitud de cotizaci&oacute;n - ', p_nombre),
         'html', concat(
-          '<h2>Nueva solicitud de cotizaci&oacute;n - Lumma</h2>',
+          '<h2>Nueva solicitud de cotizaci&oacute;n - Thalex Systems</h2>',
           '<table border="0" cellpadding="8" cellspacing="0" style="border-collapse:collapse;">',
           '<tr><td><strong>Nombre:</strong></td><td>', p_nombre, '</td></tr>',
           '<tr><td><strong>Correo:</strong></td><td>', p_correo, '</td></tr>',
