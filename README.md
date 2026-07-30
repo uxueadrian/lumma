@@ -1,4 +1,4 @@
-# Lumma - Landing Page
+# Thalex Systems - Landing Page
 
 Landing page profesional para agencia de desarrollo web. Construida con React + Vite + Tailwind CSS, con integración a Supabase para gestión de leads.
 

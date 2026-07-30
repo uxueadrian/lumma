@@ -1,4 +1,4 @@
-# Lumma - Project Brief
+# Thalex Systems - Project Brief
 
 ## Stack
 - Frontend: React 19 + Vite 6 + Tailwind CSS 3
@@ -11,10 +11,11 @@
 - [x] Formulario guarda leads en Supabase (RLS anon_insert)
 - [x] Edge Function `resend-email` desplegada en Supabase
 - [x] Secrets en Supabase: RESEND_API_KEY, TO_EMAIL
-- [x] Repo en GitHub: https://github.com/uxueadrian/lumma
+- [x] Repo en GitHub: https://github.com/uxueadrian/thalexsystems
 - [x] Deployado en Vercel
-- [ ] **Pendiente:** Comprar dominio y verificarlo en Resend
-- [ ] **Pendiente:** Cambiar `from` en edge function de `onboarding@resend.dev` a dominio propio
+- [x] Dominio thalexsystems.cloud comprado
+- [ ] **Pendiente:** Verificar dominio en Resend
+- [ ] **Pendiente:** Cambiar `from` en edge function de `onboarding@resend.dev` a `contacto@thalexsystems.cloud`
 
 ## Edge Function
 - Slug: `resend-email`
@@ -23,6 +24,6 @@
 - Ambas en Supabase secrets
 
 ## Contacto usuario
-- Email: adrianuxuechavezmartinez@gmail.com
+- Email: nex356v@gmail.com
 - GitHub: uxueadrian
 - WhatsApp: 7772597109
