@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script>
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <title>Thalex Systems - Soluciones Digitales Modernas</title>
     <meta name="description" content="Thalex Systems crea soluciones digitales modernas: landing pages, sitios web empresariales, tiendas en línea, sistemas web y aplicaciones web. Impulsa tu negocio en México." />
     <meta name="keywords" content="desarrollo web, landing pages, sitios web, e-commerce, tiendas online, sistemas web, aplicaciones web, páginas web México, desarrollo web México, Thalex Systems" />

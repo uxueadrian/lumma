@@ -2,10 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  .dark body,
+  .dark {
+    @apply bg-slate-900 text-slate-100;
+  }
 }
 
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+::selection {
+  @apply bg-thalex-500/20 text-thalex-700 dark:text-thalex-300;
 }

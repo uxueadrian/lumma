@@ -59,11 +59,11 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-white">
+    <section id="services" className="py-24 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark mb-4">Nuestros servicios</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Nuestros servicios</h2>
+          <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
             Ofrecemos soluciones digitales completas para impulsar tu negocio en el mundo online
           </p>
         </div>
@@ -72,13 +72,13 @@ export default function Services() {
           {services.map((service) => (
             <div
               key={service.title}
-              className="group p-6 rounded-2xl border border-gray-100 hover:border-thalex-200 hover:shadow-lg hover:shadow-thalex-50 transition-all"
+              className="group p-6 rounded-2xl border border-gray-100 dark:border-slate-700 hover:border-thalex-200 dark:hover:border-thalex-700 hover:shadow-lg hover:shadow-thalex-50 dark:hover:shadow-thalex-900/20 bg-white dark:bg-slate-800 transition-all"
             >
-              <div className="w-12 h-12 rounded-xl bg-thalex-50 text-thalex-600 flex items-center justify-center mb-4 group-hover:bg-thalex-100 transition-colors">
+              <div className="w-12 h-12 rounded-xl bg-thalex-50 dark:bg-thalex-900/50 text-thalex-600 dark:text-thalex-400 flex items-center justify-center mb-4 group-hover:bg-thalex-100 dark:group-hover:bg-thalex-900/70 transition-colors">
                 {service.icon}
               </div>
-              <h3 className="text-lg font-semibold text-dark mb-2">{service.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{service.description}</p>
+              <h3 className="text-lg font-semibold text-dark dark:text-white mb-2">{service.title}</h3>
+              <p className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed">{service.description}</p>
             </div>
           ))}
         </div>
