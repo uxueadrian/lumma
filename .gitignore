@@ -26,4 +26,3 @@ dist-ssr
 
 # Supabase scripts
 check_rls.mjs
-public/
