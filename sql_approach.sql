@@ -26,7 +26,7 @@ begin
         'Authorization', concat('Bearer ', current_setting('app.resend_api_key'))
       ),
       body := jsonb_build_object(
-        'from', 'Thalex Systems <onboarding@resend.dev>',
+        'from', 'Thalex Systems <contacto@thalexsystems.cloud>',
         'to', jsonb_build_array(current_setting('app.to_email')),
         'subject', concat('Nueva solicitud de cotizaci&oacute;n - ', p_nombre),
         'html', concat(

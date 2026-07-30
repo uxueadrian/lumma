@@ -10,12 +10,12 @@
 - [x] Landing page con React + Tailwind
 - [x] Formulario guarda leads en Supabase (RLS anon_insert)
 - [x] Edge Function `resend-email` desplegada en Supabase
-- [x] Secrets en Supabase: RESEND_API_KEY, TO_EMAIL
+- [x] Secrets en Supabase: RESEND_API_KEY, TO_EMAIL=thalexsystems@gmail.com
 - [x] Repo en GitHub: https://github.com/uxueadrian/thalexsystems
 - [x] Deployado en Vercel
 - [x] Dominio thalexsystems.cloud comprado
-- [ ] **Pendiente:** Verificar dominio en Resend
-- [ ] **Pendiente:** Cambiar `from` en edge function de `onboarding@resend.dev` a `contacto@thalexsystems.cloud`
+- [x] Dominio verificado en Resend
+- [x] `from` actualizado a `contacto@thalexsystems.cloud`
 
 ## Edge Function
 - Slug: `resend-email`

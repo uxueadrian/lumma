@@ -39,7 +39,7 @@ serve(async (req) => {
         'Authorization': `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: 'Thalex Systems <onboarding@resend.dev>',
+        from: 'Thalex Systems <contacto@thalexsystems.cloud>',
         to: [TO_EMAIL],
         subject: `Nueva solicitud de cotizaci&oacute;n - ${nombre}`,
         html: emailHtml,
