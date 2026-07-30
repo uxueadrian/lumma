@@ -26,3 +26,6 @@ dist-ssr
 
 # Supabase scripts
 check_rls.mjs
+
+# Opencode project brief (contains internal project info)
+.opencode/
