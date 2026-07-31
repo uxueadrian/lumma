@@ -1,10 +1,14 @@
 export default function Footer() {
   return (
-    <footer className="bg-dark dark:bg-slate-950 text-gray-400">
+    <footer className="bg-slate-900 dark:bg-slate-950 text-gray-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
           <div>
-            <h3 className="text-2xl font-bold text-white mb-3">Thalex Systems</h3>
+            <img
+              src="/THALEX SYSTEMS LOGO BLANCO.png"
+              alt="Thalex Systems"
+              className="h-10 w-auto mb-3"
+            />
             <p className="text-sm leading-relaxed text-gray-400 dark:text-slate-500">
               Soluciones digitales modernas para impulsar tu negocio en el mundo online.
             </p>
