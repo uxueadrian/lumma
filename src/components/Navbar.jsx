@@ -55,8 +55,17 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-gray-100 dark:border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#hero" className="text-2xl font-bold text-thalex-600 dark:text-thalex-400">
-            Thalex Systems
+          <a href="#hero" className="flex items-center">
+            <img
+              src="/THALEX SYSTEMS LOGO NEGRO.png"
+              alt="Thalex Systems"
+              className="h-8 sm:h-9 w-auto block dark:hidden"
+            />
+            <img
+              src="/THALEX SYSTEMS LOGO BLANCO.png"
+              alt="Thalex Systems"
+              className="h-8 sm:h-9 w-auto hidden dark:block"
+            />
           </a>
 
           <div className="hidden md:flex items-center gap-6">
