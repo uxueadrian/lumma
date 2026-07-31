@@ -6,6 +6,12 @@ const projects = [
     image: '/Black Iron Studio.png',
   },
   {
+    title: 'Portafolio Adrián',
+    category: 'Portafolio Personal',
+    link: 'https://adrian-dev-portfolio-beta.vercel.app/',
+    image: '/Portafolio Adrian.png',
+  },
+  {
     title: 'Proyecto Cliente',
     category: 'Landing Page',
     bg: 'bg-gradient-to-br from-thalex-400 to-thalex-600',
