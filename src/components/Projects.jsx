@@ -48,8 +48,9 @@ export default function Projects() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Nuestro trabajo</h2>
           <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-            Sitios web reales, 100% funcionales y listos para visitar. Así se ven los proyectos
-            que desarrollamos, y así puede verse el tuyo.
+            Explora proyectos completamente funcionales desarrollados por THALEX SYSTEMS.
+            Cada sitio refleja nuestro enfoque en diseño, rendimiento y experiencia de
+            usuario. El próximo puede ser el tuyo.
           </p>
         </div>
 
