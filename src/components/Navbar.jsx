@@ -59,12 +59,12 @@ export default function Navbar() {
             <img
               src="/THALEX SYSTEMS LOGO NEGRO.png"
               alt="Thalex Systems"
-              className="h-8 sm:h-9 w-auto block dark:hidden"
+              className="h-10 sm:h-11 w-auto block dark:hidden"
             />
             <img
               src="/THALEX SYSTEMS LOGO BLANCO.png"
               alt="Thalex Systems"
-              className="h-8 sm:h-9 w-auto hidden dark:block"
+              className="h-10 sm:h-11 w-auto hidden dark:block"
             />
           </a>
 
