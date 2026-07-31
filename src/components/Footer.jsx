@@ -7,7 +7,7 @@ export default function Footer() {
             <img
               src="/THALEX SYSTEMS LOGO BLANCO.png"
               alt="Thalex Systems"
-              className="h-10 w-auto mb-3"
+              className="h-14 w-auto mb-3"
             />
             <p className="text-sm leading-relaxed text-gray-400 dark:text-slate-500">
               Soluciones digitales modernas para impulsar tu negocio en el mundo online.
