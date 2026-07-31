@@ -1,38 +1,40 @@
 const projects = [
   {
     title: 'Black Iron Studio',
-    category: 'Prototipo - Estudio de Tatuajes',
+    category: 'Sitio Web - Estudio de Tatuajes',
     link: 'https://estudio-tatuaje-nine.vercel.app/',
     image: '/Black Iron Studio.png',
+    live: true,
   },
   {
     title: 'Portafolio Adrián',
-    category: 'Prototipo - Portafolio Personal',
+    category: 'Sitio Web - Portafolio Personal',
     link: 'https://adrian-dev-portfolio-beta.vercel.app/',
     image: '/Portafolio Adrian.png',
+    live: true,
   },
   {
     title: 'Cafetería',
-    category: 'Prototipo',
+    category: 'Sitio Web - Cafetería',
     bg: 'bg-gradient-to-br from-amber-500 to-rose-600',
   },
   {
     title: 'Gimnasio',
-    category: 'Prototipo',
+    category: 'Sitio Web - Gimnasio',
     bg: 'bg-gradient-to-br from-orange-500 to-red-600',
   },
   {
     title: 'Restaurante',
-    category: 'Prototipo',
+    category: 'Sitio Web - Restaurante',
     bg: 'bg-gradient-to-br from-emerald-500 to-teal-700',
   },
   {
     title: 'Boutique',
-    category: 'Prototipo',
+    category: 'Sitio Web - Boutique',
     bg: 'bg-gradient-to-br from-pink-500 to-purple-700',
   },
   {
-    title: 'Tu temática aquí',
+    title: 'Tu negocio aquí',
     category: 'Contáctanos',
     bg: 'bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-700 dark:to-slate-800',
     muted: true,
@@ -44,10 +46,10 @@ export default function Projects() {
     <section id="projects" className="py-24 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Proyectos y prototipos</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Nuestro trabajo</h2>
           <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-            Desarrollamos sitios web y creamos prototipos para que veas cómo puede lucir tu
-            página según la temática de tu negocio.
+            Sitios web reales, 100% funcionales y listos para visitar. Así se ven los proyectos
+            que desarrollamos, y así puede verse el tuyo.
           </p>
         </div>
 
@@ -76,6 +78,12 @@ export default function Projects() {
               ) : (
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 dark:group-hover:bg-white/5 transition-colors" />
               )}
+              {project.live && (
+                <span className="absolute top-4 left-4 z-10 inline-flex items-center gap-1.5 bg-green-500 text-white text-xs font-semibold px-2.5 py-1 rounded-full shadow">
+                  <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
+                  En vivo
+                </span>
+              )}
               <div className="relative z-10">
                 <span className="text-white/80 text-sm font-medium mb-1 block">
                   {project.category}
@@ -86,6 +94,27 @@ export default function Projects() {
               </div>
             </a>
           ))}
+        </div>
+
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-sm text-gray-500 dark:text-slate-400">
+          <span className="inline-flex items-center gap-2">
+            <svg className="w-5 h-5 text-thalex-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Desarrollo a la medida
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <svg className="w-5 h-5 text-thalex-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Sitios 100% funcionales
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <svg className="w-5 h-5 text-thalex-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            Diseño y soporte profesional
+          </span>
         </div>
       </div>
     </section>
