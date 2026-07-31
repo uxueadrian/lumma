@@ -1,45 +1,41 @@
 const projects = [
   {
     title: 'Black Iron Studio',
-    category: 'Sitio Web - Estudio de Tatuajes',
+    category: 'Prototipo - Estudio de Tatuajes',
     link: 'https://estudio-tatuaje-nine.vercel.app/',
     image: '/Black Iron Studio.png',
   },
   {
     title: 'Portafolio Adrián',
-    category: 'Portafolio Personal',
+    category: 'Prototipo - Portafolio Personal',
     link: 'https://adrian-dev-portfolio-beta.vercel.app/',
     image: '/Portafolio Adrian.png',
   },
   {
-    title: 'Proyecto Cliente',
-    category: 'Landing Page',
-    bg: 'bg-gradient-to-br from-thalex-400 to-thalex-600',
-    placeholder: true,
+    title: 'Cafetería',
+    category: 'Prototipo',
+    bg: 'bg-gradient-to-br from-amber-500 to-rose-600',
   },
   {
-    title: 'Proyecto Cliente',
-    category: 'Sitio Web Empresarial',
-    bg: 'bg-gradient-to-br from-thalex-500 to-thalex-700',
-    placeholder: true,
+    title: 'Gimnasio',
+    category: 'Prototipo',
+    bg: 'bg-gradient-to-br from-orange-500 to-red-600',
   },
   {
-    title: 'Proyecto Cliente',
-    category: 'E-commerce',
-    bg: 'bg-gradient-to-br from-thalex-600 to-thalex-800',
-    placeholder: true,
+    title: 'Restaurante',
+    category: 'Prototipo',
+    bg: 'bg-gradient-to-br from-emerald-500 to-teal-700',
   },
   {
-    title: 'Proyecto Cliente',
-    category: 'Sistema Web',
-    bg: 'bg-gradient-to-br from-thalex-400 to-thalex-700',
-    placeholder: true,
+    title: 'Boutique',
+    category: 'Prototipo',
+    bg: 'bg-gradient-to-br from-pink-500 to-purple-700',
   },
   {
-    title: 'Tu proyecto aquí',
+    title: 'Tu temática aquí',
     category: 'Contáctanos',
     bg: 'bg-gradient-to-br from-gray-100 to-gray-200 dark:from-slate-700 dark:to-slate-800',
-    placeholder: true,
+    muted: true,
   },
 ]
 
@@ -48,9 +44,10 @@ export default function Projects() {
     <section id="projects" className="py-24 bg-white dark:bg-slate-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Proyectos recientes</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Proyectos y prototipos</h2>
           <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-            Conoce algunos de los proyectos que hemos desarrollado para nuestros clientes
+            Desarrollamos sitios web y creamos prototipos para que veas cómo puede lucir tu
+            página según la temática de tu negocio.
           </p>
         </div>
 
@@ -83,7 +80,7 @@ export default function Projects() {
                 <span className="text-white/80 text-sm font-medium mb-1 block">
                   {project.category}
                 </span>
-                <h3 className={`font-bold ${project.placeholder ? 'text-gray-400 dark:text-slate-500' : 'text-white'}`}>
+                <h3 className={`font-bold ${project.muted ? 'text-gray-400 dark:text-slate-500' : 'text-white'}`}>
                   {project.title}
                 </h3>
               </div>
