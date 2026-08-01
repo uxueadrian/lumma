@@ -1,21 +1,13 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { submitLead } from '../services/leadService'
+import { serviceOptions, getServiceById } from '../config/services'
+import { getPendingService, subscribeToServiceSelection } from '../services/requestService'
 
 const WHATSAPP_NUMBER = '7772597109'
 const WHATSAPP_MESSAGE = encodeURIComponent(
   'Hola, vi la página de Thalex Systems y quiero solicitar información sobre un proyecto.'
 )
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
-
-const services = [
-  'Landing Page',
-  'Sitio Web Empresarial',
-  'Tienda en Línea (E-commerce)',
-  'Sistema Web',
-  'Aplicación Web',
-  'Mantenimiento Web',
-  'Otro',
-]
 
 const budgets = [
   '$500 - $1,000 MXN',
@@ -40,6 +32,16 @@ export default function Contact() {
   const [form, setForm] = useState(initialState)
   const [status, setStatus] = useState('idle')
   const [errors, setErrors] = useState({})
+
+  useEffect(() => {
+    const initial = getPendingService()
+    if (initial) {
+      setForm((prev) => ({ ...prev, servicio: initial }))
+    }
+    return subscribeToServiceSelection((id) => {
+      setForm((prev) => ({ ...prev, servicio: id }))
+    })
+  }, [])
 
   function validate() {
     const newErrors = {}
@@ -71,7 +73,9 @@ export default function Contact() {
 
     setStatus('loading')
     try {
-      await submitLead(form)
+      const service = getServiceById(form.servicio)
+      const payload = service ? { ...form, servicio: service.name } : form
+      await submitLead(payload)
       setStatus('success')
       setForm(initialState)
     } catch {
@@ -152,9 +156,9 @@ export default function Contact() {
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all"
                     >
                       <option value="">Selecciona un servicio</option>
-                      {services.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
+                      {serviceOptions.map((option) => (
+                        <option key={option.value} value={option.value}>
+                          {option.label}
                         </option>
                       ))}
                     </select>
