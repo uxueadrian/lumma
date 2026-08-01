@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
-import { submitLead } from '../services/leadService'
-import { serviceOptions, getServiceById } from '../config/services'
+import QuoteForm from './QuoteForm'
 import { getPendingService, subscribeToServiceSelection } from '../services/requestService'
 
 const WHATSAPP_NUMBER = '7772597109'
@@ -9,78 +8,41 @@ const WHATSAPP_MESSAGE = encodeURIComponent(
 )
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 
-const budgets = [
-  '$500 - $1,000 MXN',
-  '$1,000 - $5,000 MXN',
-  '$5,000 - $10,000 MXN',
-  '$10,000 - $20,000 MXN',
-  '$20,000 - $50,000 MXN',
-  'Más de $50,000 MXN',
-  'No estoy seguro',
-]
-
-const initialState = {
-  nombre: '',
-  correo: '',
-  telefono: '',
-  servicio: '',
-  presupuesto: '',
-  mensaje: '',
-}
-
 export default function Contact() {
-  const [form, setForm] = useState(initialState)
-  const [status, setStatus] = useState('idle')
-  const [errors, setErrors] = useState({})
+  const [overlayOpen, setOverlayOpen] = useState(false)
+  const [exiting, setExiting] = useState(false)
+  const [toast, setToast] = useState(false)
 
   useEffect(() => {
-    const initial = getPendingService()
-    if (initial) {
-      setForm((prev) => ({ ...prev, servicio: initial }))
+    if (getPendingService()) {
+      setOverlayOpen(true)
     }
-    return subscribeToServiceSelection((id) => {
-      setForm((prev) => ({ ...prev, servicio: id }))
+    return subscribeToServiceSelection(() => {
+      setOverlayOpen(true)
     })
   }, [])
 
-  function validate() {
-    const newErrors = {}
-    if (!form.nombre.trim()) newErrors.nombre = 'El nombre es obligatorio'
-    if (!form.correo.trim()) {
-      newErrors.correo = 'El correo es obligatorio'
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.correo)) {
-      newErrors.correo = 'Correo inválido'
-    }
-    if (form.telefono && !/^[\d\s\+\-()]{7,}$/.test(form.telefono)) {
-      newErrors.telefono = 'Teléfono inválido'
-    }
-    if (!form.mensaje.trim()) newErrors.mensaje = 'El mensaje es obligatorio'
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
+  function showToast() {
+    setToast(true)
+    window.setTimeout(() => setToast(false), 6000)
   }
 
-  function handleChange(e) {
-    const { name, value } = e.target
-    setForm((prev) => ({ ...prev, [name]: value }))
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }))
+  function handleFormSuccess() {
+    if (overlayOpen) {
+      setExiting(true)
+      window.setTimeout(() => {
+        setExiting(false)
+        setOverlayOpen(false)
+        showToast()
+      }, 450)
+    } else {
+      showToast()
     }
   }
 
-  async function handleSubmit(e) {
-    e.preventDefault()
-    if (!validate()) return
-
-    setStatus('loading')
-    try {
-      const service = getServiceById(form.servicio)
-      const payload = service ? { ...form, servicio: service.name } : form
-      await submitLead(payload)
-      setStatus('success')
-      setForm(initialState)
-    } catch {
-      setStatus('error')
-    }
+  function closeOverlay() {
+    setExiting(false)
+    setOverlayOpen(false)
   }
 
   return (
@@ -97,119 +59,7 @@ export default function Contact() {
           <div>
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-sm border border-gray-100 dark:border-slate-700">
               <h3 className="text-xl font-semibold text-dark dark:text-white mb-6">Solicita tu cotización</h3>
-
-              {status === 'success' ? (
-                <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-lg font-semibold text-gray-800 dark:text-slate-200 mb-2">
-                    ¡Gracias! Hemos recibido tu solicitud.
-                  </p>
-                  <p className="text-gray-600 dark:text-slate-400">Nos pondremos en contacto contigo pronto.</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <input
-                      type="text"
-                      name="nombre"
-                      value={form.nombre}
-                      onChange={handleChange}
-                      placeholder="Tu nombre"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.nombre ? 'border-red-400' : 'border-gray-200 dark:border-slate-600'} bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all`}
-                    />
-                    {errors.nombre && <p className="text-red-500 text-sm mt-1">{errors.nombre}</p>}
-                  </div>
-
-                  <div>
-                    <input
-                      type="email"
-                      name="correo"
-                      value={form.correo}
-                      onChange={handleChange}
-                      placeholder="tu@correo.com"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.correo ? 'border-red-400' : 'border-gray-200 dark:border-slate-600'} bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all`}
-                    />
-                    {errors.correo && <p className="text-red-500 text-sm mt-1">{errors.correo}</p>}
-                  </div>
-
-                  <div>
-                    <input
-                      type="tel"
-                      name="telefono"
-                      value={form.telefono}
-                      onChange={handleChange}
-                      placeholder="+52 777 123 4567"
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.telefono ? 'border-red-400' : 'border-gray-200 dark:border-slate-600'} bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all`}
-                    />
-                    {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>}
-                  </div>
-
-                  <div>
-                    <select
-                      name="servicio"
-                      value={form.servicio}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all"
-                    >
-                      <option value="">Selecciona un servicio</option>
-                      {serviceOptions.map((option) => (
-                        <option key={option.value} value={option.value}>
-                          {option.label}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm text-gray-600 dark:text-slate-400 mb-2">
-                      ¿Cuál es tu presupuesto aproximado para el proyecto?
-                    </label>
-                    <select
-                      name="presupuesto"
-                      value={form.presupuesto}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-slate-600 bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all"
-                    >
-                      <option value="">Selecciona un rango</option>
-                      {budgets.map((b) => (
-                        <option key={b} value={b}>
-                          {b}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <textarea
-                      name="mensaje"
-                      value={form.mensaje}
-                      onChange={handleChange}
-                      rows={4}
-                      placeholder="Cuéntanos sobre tu idea o proyecto..."
-                      className={`w-full px-4 py-3 rounded-xl border ${errors.mensaje ? 'border-red-400' : 'border-gray-200 dark:border-slate-600'} bg-gray-50 dark:bg-slate-700 dark:text-slate-200 focus:bg-white dark:focus:bg-slate-700 focus:border-thalex-400 focus:ring-2 focus:ring-thalex-100 dark:focus:ring-thalex-900/50 outline-none transition-all resize-none`}
-                    />
-                    {errors.mensaje && <p className="text-red-500 text-sm mt-1">{errors.mensaje}</p>}
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={status === 'loading'}
-                    className="w-full bg-thalex-600 hover:bg-thalex-700 dark:bg-thalex-500 dark:hover:bg-thalex-600 disabled:bg-thalex-300 text-white py-3.5 rounded-xl font-semibold transition-all shadow-lg shadow-thalex-200 dark:shadow-thalex-900/30 hover:shadow-xl"
-                  >
-                    {status === 'loading' ? 'Enviando solicitud...' : 'Enviar solicitud'}
-                  </button>
-
-                  {status === 'error' && (
-                    <p className="text-red-500 text-sm text-center">
-                      Hubo un error al enviar tu solicitud. Intenta nuevamente.
-                    </p>
-                  )}
-                </form>
-              )}
+              <QuoteForm onSuccess={handleFormSuccess} />
             </div>
           </div>
 
@@ -248,7 +98,7 @@ export default function Contact() {
                 ¿Prefieres escribirnos directamente?
               </h3>
               <p className="text-gray-600 dark:text-slate-400 mb-6 text-sm">
-                Respondemos en menos de 24 horas. Cuéntanos sobre tu proyecto y te daremos una
+                Respondemos en menos de 12 horas. Cuéntanos sobre tu proyecto y te daremos una
                 cotización sin compromiso.
               </p>
               <a
@@ -266,6 +116,65 @@ export default function Contact() {
           </div>
         </div>
       </div>
+
+      {overlayOpen && (
+        <div className="fixed inset-0 z-[70] overflow-y-auto">
+          <div
+            className="fixed inset-0 bg-slate-900/70 backdrop-blur-sm"
+            onClick={closeOverlay}
+            aria-hidden="true"
+          />
+          <div className="relative min-h-full flex items-start justify-center p-4 sm:p-8">
+            <div
+              className={`relative w-full max-w-xl my-8 ${exiting ? 'animate-form-out' : 'animate-form-in'}`}
+            >
+              <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-gray-100 dark:border-slate-700 overflow-hidden">
+                <div className="h-1.5 bg-gradient-to-r from-thalex-500 to-violet-600" />
+                <div className="p-6 sm:p-8">
+                  <div className="flex items-start justify-between gap-4 mb-6">
+                    <div>
+                      <h3 className="text-xl font-bold text-dark dark:text-white">
+                        Solicita tu cotización
+                      </h3>
+                      <p className="text-sm text-gray-500 dark:text-slate-400 mt-1">
+                        Te respondemos en menos de 12 horas
+                      </p>
+                    </div>
+                    <button
+                      onClick={closeOverlay}
+                      className="p-2 rounded-lg text-gray-400 hover:text-gray-600 dark:hover:text-slate-200 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors shrink-0"
+                      aria-label="Cerrar"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
+                  <QuoteForm onSuccess={handleFormSuccess} />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {toast && (
+        <div className="fixed bottom-6 inset-x-0 z-[80] flex justify-center px-4">
+          <div className="animate-toast-in inline-flex items-center gap-3 bg-white dark:bg-slate-800 text-gray-800 dark:text-slate-200 border border-gray-100 dark:border-slate-700 shadow-2xl rounded-2xl px-5 py-4 max-w-md">
+            <div className="w-10 h-10 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center shrink-0">
+              <svg className="w-5 h-5 text-green-600 dark:text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <div>
+              <p className="font-semibold">¡Gracias! Hemos recibido tu solicitud.</p>
+              <p className="text-sm text-gray-500 dark:text-slate-400">
+                Nos comunicaremos contigo lo más rápido posible, en menos de 12 horas.
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   )
 }
