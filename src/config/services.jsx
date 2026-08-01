@@ -57,6 +57,8 @@ export const services = [
   {
     id: 'landing-pages',
     name: 'Landing Pages',
+    theme: 'sky',
+    label: 'Captación y conversión',
     short: 'Páginas de aterrizaje diseñadas para convertir visitantes en clientes.',
     problem: 'Tienes una campaña o producto y necesitas captar clientes rápidamente.',
     description:
@@ -88,7 +90,7 @@ export const services = [
       body: 'Creamos Landing Pages completamente personalizadas para tu negocio.',
       button: 'Quiero una Landing Page',
     },
-    gradient: 'from-thalex-500 to-violet-600',
+    gradient: 'from-sky-500 to-cyan-600',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h18v18H3V3z" />
@@ -108,6 +110,8 @@ export const services = [
   {
     id: 'sitios-web-corporativos',
     name: 'Sitios Web Corporativos',
+    theme: 'indigo',
+    label: 'Presencia digital',
     short: 'La presencia digital profesional que tu empresa merece.',
     problem: 'Tu empresa no transmite confianza en línea o no aparece en Google.',
     description:
@@ -139,7 +143,7 @@ export const services = [
       body: 'Creamos Sitios Web Corporativos a la altura de tu marca.',
       button: 'Quiero un Sitio Web Corporativo',
     },
-    gradient: 'from-sky-500 to-thalex-600',
+    gradient: 'from-indigo-500 to-violet-600',
     icon: (
       <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -159,6 +163,8 @@ export const services = [
   {
     id: 'tiendas-en-linea',
     name: 'Tiendas en Línea',
+    theme: 'emerald',
+    label: 'Ventas en línea',
     short: 'Vende tus productos en internet las 24 horas, sin intermediarios.',
     problem: 'Quieres vender en línea pero no sabes por dónde empezar.',
     description:
@@ -201,6 +207,8 @@ export const services = [
   {
     id: 'sistemas-web',
     name: 'Sistemas Web',
+    theme: 'fuchsia',
+    label: 'Control y automatización',
     short: 'Sistemas a la medida para controlar la operación de tu negocio.',
     problem: 'Todavía controlas tus procesos con hojas de cálculo y correos.',
     description:
@@ -241,6 +249,8 @@ export const services = [
   {
     id: 'aplicaciones-web',
     name: 'Aplicaciones Web',
+    theme: 'amber',
+    label: 'Experiencia moderna',
     short: 'Aplicaciones modernas que se sienten nativas desde el navegador.',
     problem: 'Necesitas una app potente sin la complejidad de instalar nada.',
     description:
@@ -282,6 +292,8 @@ export const services = [
   {
     id: 'mantenimiento-web',
     name: 'Mantenimiento Web',
+    theme: 'rose',
+    label: 'Soporte continuo',
     short: 'Tu sitio siempre actualizado, seguro y funcionando.',
     problem: 'Tu sitio existe pero está lento, desactualizado o sin soporte.',
     description:
@@ -330,4 +342,55 @@ export const serviceOptions = [
 
 export function getServiceById(id) {
   return services.find((service) => service.id === id)
+}
+
+export const serviceThemes = {
+  sky: {
+    dot: 'bg-sky-400',
+    tile: 'bg-sky-500/15 border-sky-400/25 text-sky-300',
+    blobA: 'bg-sky-600/30',
+    blobB: 'bg-cyan-600/20',
+    button: 'bg-gradient-to-r from-sky-500 to-cyan-600 hover:from-sky-600 hover:to-cyan-700',
+    accentText: 'text-sky-300',
+  },
+  indigo: {
+    dot: 'bg-indigo-400',
+    tile: 'bg-indigo-500/15 border-indigo-400/25 text-indigo-300',
+    blobA: 'bg-indigo-600/30',
+    blobB: 'bg-violet-600/20',
+    button: 'bg-gradient-to-r from-indigo-500 to-violet-600 hover:from-indigo-600 hover:to-violet-700',
+    accentText: 'text-indigo-300',
+  },
+  emerald: {
+    dot: 'bg-emerald-400',
+    tile: 'bg-emerald-500/15 border-emerald-400/25 text-emerald-300',
+    blobA: 'bg-emerald-600/30',
+    blobB: 'bg-teal-600/20',
+    button: 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700',
+    accentText: 'text-emerald-300',
+  },
+  fuchsia: {
+    dot: 'bg-fuchsia-400',
+    tile: 'bg-fuchsia-500/15 border-fuchsia-400/25 text-fuchsia-300',
+    blobA: 'bg-fuchsia-600/30',
+    blobB: 'bg-pink-600/20',
+    button: 'bg-gradient-to-r from-fuchsia-500 to-pink-600 hover:from-fuchsia-600 hover:to-pink-700',
+    accentText: 'text-fuchsia-300',
+  },
+  amber: {
+    dot: 'bg-amber-400',
+    tile: 'bg-amber-500/15 border-amber-400/25 text-amber-300',
+    blobA: 'bg-amber-600/30',
+    blobB: 'bg-orange-600/20',
+    button: 'bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700',
+    accentText: 'text-amber-300',
+  },
+  rose: {
+    dot: 'bg-rose-400',
+    tile: 'bg-rose-500/15 border-rose-400/25 text-rose-300',
+    blobA: 'bg-rose-600/30',
+    blobB: 'bg-red-600/20',
+    button: 'bg-gradient-to-r from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700',
+    accentText: 'text-rose-300',
+  },
 }
