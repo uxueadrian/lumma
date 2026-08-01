@@ -13,7 +13,7 @@ function LiveBadge() {
   )
 }
 
-export default function ServiceCarousel({ projects, serviceId }) {
+export default function ServiceCarousel({ projects, serviceId, onRequest }) {
   const trackRef = useRef(null)
 
   function scroll(direction) {
@@ -58,7 +58,10 @@ export default function ServiceCarousel({ projects, serviceId }) {
             Escríbenos y te mostramos casos similares.
           </p>
           <button
-            onClick={() => requestService(serviceId)}
+            onClick={() => {
+              requestService(serviceId)
+              if (onRequest) onRequest()
+            }}
             className="inline-flex items-center gap-2 text-thalex-600 dark:text-thalex-400 font-semibold text-sm hover:underline"
           >
             Pedir un ejemplo

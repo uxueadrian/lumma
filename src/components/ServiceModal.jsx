@@ -133,7 +133,11 @@ export default function ServiceModal({ service, onClose }) {
             </div>
 
             <div className="mb-8">
-              <ServiceCarousel projects={service.projects} serviceId={service.id} />
+              <ServiceCarousel
+                projects={service.projects}
+                serviceId={service.id}
+                onRequest={onClose}
+              />
             </div>
 
             <div className="rounded-2xl bg-thalex-50 dark:bg-thalex-900/30 border border-thalex-100 dark:border-thalex-800 p-6 sm:p-8 text-center">
