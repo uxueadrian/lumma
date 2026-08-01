@@ -8,6 +8,12 @@ export function requestService(id) {
   scrollToContact()
 }
 
+export function requestContact() {
+  pendingService = null
+  listeners.forEach((listener) => listener(null))
+  scrollToContact()
+}
+
 export function getPendingService() {
   return pendingService
 }
