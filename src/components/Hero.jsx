@@ -1,3 +1,5 @@
+import { requestContact } from '../services/requestService'
+
 const WHATSAPP_NUMBER = '7772597109'
 const WHATSAPP_MESSAGE = encodeURIComponent(
   'Hola, vi la página de Thalex Systems y quiero solicitar información sobre un proyecto.'
@@ -32,12 +34,13 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a
-            href="#contact"
+          <button
+            type="button"
+            onClick={requestContact}
             className="bg-thalex-600 hover:bg-thalex-700 dark:bg-thalex-500 dark:hover:bg-thalex-600 text-white px-8 py-3.5 rounded-xl text-base font-semibold transition-all shadow-lg shadow-thalex-200 dark:shadow-thalex-900/30 hover:shadow-xl hover:-translate-y-0.5"
           >
             Solicitar cotización
-          </a>
+          </button>
           <a
             href={WHATSAPP_URL}
             target="_blank"
