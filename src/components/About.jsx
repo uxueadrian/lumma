@@ -31,7 +31,8 @@ export default function About() {
               <p className="text-gray-600 dark:text-slate-400 leading-relaxed">
                 Adrián es el fundador de Thalex Systems, un desarrollador apasionado por crear
                 soluciones digitales que ayudan a las empresas a crecer. Su objetivo es combinar
-                diseño, tecnología y estrategia para ofrecer productos que generan resultados reales.
+                diseño, tecnología y estrategia para ofrecer productos que generan resultados reales,
+                con atención 100% remota a clientes en México y el extranjero.
               </p>
 
               <a

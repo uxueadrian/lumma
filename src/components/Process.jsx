@@ -3,16 +3,16 @@ import { useEffect, useRef, useState } from 'react'
 const steps = [
   {
     number: '01',
-    title: 'Idea inicial',
+    title: 'Videollamada inicial',
     description:
-      'Nos reunimos para entender tu visión, objetivos y necesidades. Definimos juntos el alcance del proyecto.',
+      'Nos reunimos por videollamada en tu horario para entender tu visión, objetivos y necesidades. Definimos juntos el alcance del proyecto.',
     color: 'bg-thalex-500',
   },
   {
     number: '02',
     title: 'Planeación',
     description:
-      'Creamos una estrategia detallada: diseño, tecnologías, tiempos y presupuesto. Tú apruebas cada paso.',
+      'Creamos una estrategia detallada: diseño, tecnologías, tiempos y presupuesto. Firmamos contrato y acordamos pagos por etapas. Tú apruebas cada paso.',
     color: 'bg-thalex-600',
   },
   {
@@ -72,7 +72,8 @@ export default function Process() {
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-dark dark:text-white mb-4">Cómo trabajamos</h2>
           <p className="text-gray-600 dark:text-slate-400 max-w-2xl mx-auto text-lg">
-            Un proceso claro y transparente para llevar tu proyecto del concepto a la realidad
+            Un proceso claro y transparente, 100% en línea: reuniones por videollamada y avances
+            constantes por WhatsApp y correo
           </p>
         </div>
 
