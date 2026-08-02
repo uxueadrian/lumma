@@ -2,6 +2,8 @@
 
 Landing page profesional para agencia de desarrollo web. Construida con React + Vite + Tailwind CSS, con integración a Supabase para gestión de leads.
 
+Este repositorio es además el **Business Core** del ecosistema THALEX SYSTEMS: aloja la documentación del negocio, la arquitectura, el modelo de datos y las decisiones técnicas (ver [docs/README.md](./docs/README.md)). El Portal completo del sistema vive en el repositorio `thalexsystems-client-portal`.
+
 ## Stack
 
 - **Frontend:** React 19, Vite 6, Tailwind CSS 3

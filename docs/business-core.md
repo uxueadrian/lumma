@@ -8,8 +8,10 @@ THALEX SYSTEMS es una empresa tecnológica que ofrece desarrollo digital, manten
 
 | Repositorio | Rol |
 | --- | --- |
-| `thalexsystems` | Business Core: documentación del negocio, reglas, arquitectura y la **landing page** pública. |
-| `thalexsystems-client-portal` | Portal de Clientes y Panel Administrativo (rutas `/client` y `/admin`). |
+| `thalexsystems` | Business Core: documentación del negocio, reglas, arquitectura, modelo de datos, decisiones técnicas y la **landing page** pública. |
+| `thalexsystems-client-portal` | **Portal completo del sistema**: una sola aplicación con un único inicio de sesión. La interfaz cambia según el rol del usuario (`OWNER`, `ADMIN`, `MONITOR`, `CLIENT`). |
+
+El **panel administrativo no es un repositorio independiente** ni usa un segundo sistema de autenticación: vive dentro del Portal como la interfaz de los roles internos (`OWNER`, `ADMIN`, `MONITOR`).
 
 ## Catálogo de servicios
 
@@ -57,7 +59,7 @@ Solicitud → Revisión THALEX → Cotización → Pago → Activación → Port
 
 ### 2. Cliente creado manualmente
 
-THALEX crea clientes desde el panel administrativo. Ejemplos: venta presencial, WhatsApp, referencia, contacto directo.
+THALEX crea clientes desde el **portal** (sección interna de ADMIN/OWNER). Ejemplos: venta presencial, WhatsApp, referencia, contacto directo.
 
 El administrador crea el cliente, asigna servicios y genera el acceso al portal.
 
