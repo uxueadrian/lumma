@@ -1,6 +1,6 @@
 # Diseño de Supabase — Propuesta para revisión (v3)
 
-> **Estado:** propuesta aprobada con ajustes finales. **No** se ha creado SQL ni ejecutado migraciones.
+> **Estado:** implementado. La migración v3 fue ejecutada en Supabase (2026-08-02). Este documento es el diseño oficial del esquema; el SQL ejecutado queda registrado en `supabase/schema_proposal.sql` como documentación técnica e histórica.
 > Base conceptual: [data-model.md](./data-model.md), [roles-and-security.md](./roles-and-security.md), [payments.md](./payments.md), [services-care.md](./services-care.md), [infrastructure.md](./infrastructure.md).
 
 ## 1. Convenciones
@@ -17,7 +17,7 @@
 ## 2. Enums (máquinas de estado)
 
 ```sql
--- (nomenclatura propuesta; sin ejecutar)
+-- (nomenclatura implementada en producción)
 user_role               : owner | admin | monitor | client
 cliente_origen          : web | manual
 cliente_estado          : prospecto | activo | inactivo
@@ -612,4 +612,4 @@ AWS S3               (almacenamiento)
 
 ---
 
-Diseño v3 listo. El SQL completo se genera como **propuesta** en el siguiente paso (sin ejecutar).
+Diseño v3 implementado en Supabase (2026-08-02). El SQL ejecutado queda como registro oficial en `supabase/schema_proposal.sql` (documentación técnica e histórica; no debe tratarse como migración pendiente).

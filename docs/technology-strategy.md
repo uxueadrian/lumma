@@ -8,7 +8,7 @@ THALEX SYSTEMS debe **evolucionar sin fricción**: la arquitectura no debe depen
 
 | Capa | Proveedor actual |
 | --- | --- |
-| Frontend (landing, portal, panel) | Vercel |
+| Frontend (landing, portal) | Vercel |
 | Backend administrado | Supabase (Auth, PostgreSQL, Edge Functions) |
 | Base operacional | Supabase PostgreSQL |
 | Correo | Resend |

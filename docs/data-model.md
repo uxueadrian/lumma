@@ -1,6 +1,6 @@
 # Modelo de datos conceptual
 
-> Fase conceptual. No hay tablas creadas todavía. Este documento define entidades, relaciones y estados; la implementación SQL se hará en una fase posterior.
+> Fase conceptual implementada. Este documento define entidades, relaciones y estados. El SQL ejecutado queda registrado en `supabase/schema_proposal.sql`; el diseño oficial de Supabase en [supabase-design.md](./supabase-design.md).
 
 ## Convenciones de nomenclatura
 
@@ -295,7 +295,7 @@ recibido → revisando → en_proceso → resuelto → cerrado
 ## Reglas derivadas
 
 - Un servicio solo queda `activo` cuando el pago asociado pasa a `aprobado` (ver [payments.md](./payments.md)).
-- La conversión `lead → cliente` puede ocurrir desde el panel administrativo.
+- La conversión `lead → cliente` puede ocurrir desde el portal (sección interna).
 - `servicios_contratados` de tipo `care`, `automations` y `hosting` siguen su propio ciclo de vida documentado en sus archivos.
 - La infraestructura se registra contra un `proveedor` del catálogo; ningún proveedor se fija en la lógica del negocio.
 - Los servicios externos son configurables **por proyecto** y apuntan a un `proveedor` del catálogo.
@@ -380,4 +380,4 @@ Confirmación de que el modelo soporta el funcionamiento de THALEX Care como **s
 | MONITOR | Ve proyectos asignados; **actualiza** tareas y avances asignados. **Nunca** pagos, contratos, financiero ni configuración crítica. |
 | `tareas.avance` | Progreso (0-100) actualizable por MONITOR en tareas asignadas. |
 
-**Estado:** modelo conceptual cerrado y aprobado. Listo para la generación del SQL (solo como propuesta, sin ejecutar).
+**Estado:** modelo conceptual cerrado y aprobado. Implementado en Supabase (migración v3, ejecutada el 2026-08-02); el SQL queda registrado en `supabase/schema_proposal.sql`.

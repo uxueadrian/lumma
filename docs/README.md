@@ -21,8 +21,13 @@ Documentación oficial del negocio. Vive en el repositorio `thalexsystems` (Busi
 
 ## Estado de la documentación
 
-- **Fase:** propuesta conceptual aprobada para revisión (sin tablas ni código).
-- Los documentos describen el modelo conceptual y las reglas de negocio. La implementación en Supabase (tablas, RLS, Edge Functions) se hará en una fase posterior.
+- **Fase:** modelo conceptual implementado. La migración v3 del esquema Supabase fue ejecutada (2026-08-02); `supabase/schema_proposal.sql` queda como registro oficial e histórico.
+- Los documentos describen el modelo conceptual, las reglas de negocio y la arquitectura definitiva. El Portal (`thalexsystems-client-portal`) está en desarrollo.
+
+## Arquitectura del ecosistema
+
+- **Repositorio `thalexsystems`:** landing pública + documentación del negocio (Business Core).
+- **Repositorio `thalexsystems-client-portal`:** Portal completo del sistema, una sola aplicación con un único inicio de sesión; la interfaz cambia según el rol (`OWNER`, `ADMIN`, `MONITOR`, `CLIENT`). No existe un repositorio independiente para el panel administrativo ni un segundo sistema de autenticación (ver [architecture.md](./architecture.md)).
 
 ## Reglas de documentación
 
