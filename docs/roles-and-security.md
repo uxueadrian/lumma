@@ -45,7 +45,8 @@
 
 - Nunca exponer datos sensibles de un cliente a otro usuario `CLIENT`.
 - El rol se asigna al crear el usuario y se valida en cada petición.
-- El panel `/admin` rechaza acceso a usuarios con rol `CLIENT`; el portal `/client` rechaza roles internos.
+- El Portal es **una sola aplicación con un único inicio de sesión**: tras autenticarse, el sistema determina el rol y carga la interfaz correspondiente. No existe un segundo sistema de autenticación ni rutas separadas por rol (`/admin`, `/client`).
+- La interfaz interna (OWNER/ADMIN/MONITOR) se muestra solo a roles internos; la interfaz de CLIENT se muestra solo a ese rol.
 - MONITOR no puede ver montos, métodos de pago ni documentos financieros.
 - MONITOR puede ver solicitudes de soporte únicamente si está asignado como responsable.
 - MONITOR puede actualizar el estado y avance de las tareas asignadas, pero no crear ni eliminar tareas ni proyectos.
