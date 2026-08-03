@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Services from './components/Services'
+import Care from './components/Care'
 import Process from './components/Process'
 import Trust from './components/Trust'
 import Projects from './components/Projects'
@@ -15,6 +16,7 @@ export default function App() {
       <main>
         <Hero />
         <Services />
+        <Care />
         <Process />
         <Trust />
         <Projects />

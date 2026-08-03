@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { submitLead } from '../services/leadService'
 import { serviceOptions, getServiceById } from '../config/services'
+import { getCarePlanById } from '../config/carePlans'
 import { getPendingService, subscribeToServiceSelection } from '../services/requestService'
 
 const budgets = [
@@ -17,6 +18,7 @@ const initialState = {
   nombre: '',
   correo: '',
   telefono: '',
+  empresa: '',
   servicio: '',
   presupuesto: '',
   mensaje: '',
@@ -68,7 +70,15 @@ export default function QuoteForm({ onSuccess }) {
     setStatus('loading')
     try {
       const service = getServiceById(form.servicio)
-      const payload = service ? { ...form, servicio: service.name } : form
+      const carePlan = getCarePlanById(form.servicio)
+      const servicioName = service ? service.name : carePlan ? carePlan.name : form.servicio
+      const mensaje = [
+        form.empresa?.trim() ? `Empresa: ${form.empresa.trim()}` : '',
+        form.mensaje.trim(),
+      ]
+        .filter(Boolean)
+        .join('\n')
+      const payload = { ...form, servicio: servicioName, mensaje }
       await submitLead(payload)
       setForm(initialState)
       setStatus('idle')
@@ -117,6 +127,17 @@ export default function QuoteForm({ onSuccess }) {
           className={inputClass(false)}
         />
         {errors.telefono && <p className="text-red-500 text-sm mt-1">{errors.telefono}</p>}
+      </div>
+
+      <div>
+        <input
+          type="text"
+          name="empresa"
+          value={form.empresa}
+          onChange={handleChange}
+          placeholder="Tu empresa (opcional)"
+          className={inputClass(false)}
+        />
       </div>
 
       <div>

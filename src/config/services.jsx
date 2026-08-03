@@ -1,3 +1,5 @@
+import { carePlans } from './carePlans'
+
 export const services = [
   {
     id: 'software-a-medida',
@@ -337,6 +339,7 @@ export const regularServices = services.filter((service) => !service.featured)
 
 export const serviceOptions = [
   ...services.map((service) => ({ value: service.id, label: service.name })),
+  ...carePlans.map((plan) => ({ value: plan.id, label: plan.name })),
   { value: 'Otro', label: 'Otro' },
 ]
 

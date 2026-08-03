@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import QuoteForm from './QuoteForm'
 import { getPendingService, subscribeToServiceSelection } from '../services/requestService'
 import { getServiceById } from '../config/services'
+import { getCarePlanById } from '../config/carePlans'
 
 const WHATSAPP_NUMBER = '7772597109'
 
@@ -58,7 +59,9 @@ export default function Contact() {
   }, [])
 
   const service = selectedService ? getServiceById(selectedService) : null
-  const whatsappUrl = buildWhatsAppUrl(service ? service.name : null)
+  const carePlan = selectedService ? getCarePlanById(selectedService) : null
+  const serviceName = service ? service.name : carePlan ? carePlan.name : null
+  const whatsappUrl = buildWhatsAppUrl(serviceName)
 
   function showToast(title, sub = '') {
     setToast({ title, sub })
@@ -211,9 +214,9 @@ export default function Contact() {
 
                   {step === 'chooser' ? (
                     <div className="space-y-6">
-                      {service && (
+                      {serviceName && (
                         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-thalex-100 dark:bg-thalex-900/50 text-thalex-700 dark:text-thalex-300 text-sm font-medium">
-                          Quiero cotizar {service.name}
+                          Quiero cotizar {serviceName}
                         </div>
                       )}
 
